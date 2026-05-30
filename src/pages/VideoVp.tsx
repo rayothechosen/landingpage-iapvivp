@@ -134,7 +134,7 @@ const VideoVp = () => {
             >
               <CtaButton
                 checkoutLink={CHECKOUT_LINK}
-                variant="direct"
+                variant="scroll"
                 className="btn-primary flex items-center justify-center w-full text-center text-base"
               >
                 QUERO TESTAR GRÁTIS
