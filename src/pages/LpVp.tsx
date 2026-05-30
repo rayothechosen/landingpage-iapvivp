@@ -27,7 +27,7 @@ const LpVp = () => {
   useEffect(() => {
     const s = document.createElement("script");
     s.src =
-      "https://scripts.converteai.net/86b88a9f-fb0d-4413-b3ae-3fbda54e9b43/players/6a0793c6a8ee75d656a8d433/v4/player.js";
+      "https://scripts.converteai.net/f3993fb3-b7fc-4628-bf7a-d82c39d224ab/players/6a1b48b9703894749f3cfeda/v4/player.js";
     s.async = true;
     document.head.appendChild(s);
     return () => {
@@ -156,7 +156,7 @@ const LpVp = () => {
           >
             <div
               dangerouslySetInnerHTML={{
-                __html: `<vturb-smartplayer id="vid-6a0793c6a8ee75d656a8d433" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>`,
+                __html: `<vturb-smartplayer id="vid-6a1b48b9703894749f3cfeda" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>`,
               }}
             />
           </motion.div>
