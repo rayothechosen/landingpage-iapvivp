@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Novelinhas Lucrativas — paleta laranja vibrante */
+    --background: 28 45% 97%;
+    --foreground: 14 50% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 14 50% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 14 50% 12%;
+
+    /* Laranja principal - identidade */
+    --primary: 18 97% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 32 99% 61%;
+
+    /* Laranja escuro/base - destaque secundário */
+    --coral: 13 99% 41%;
+    --coral-foreground: 0 0% 100%;
+
+    --success: 152 65% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --secondary: 28 35% 93%;
+    --secondary-foreground: 14 50% 16%;
+
+    --muted: 28 30% 90%;
+    --muted-foreground: 14 15% 36%;
+
+    /* Dourado vibrante (mantido como contraste) */
+    --accent: 42 100% 58%;
+    --accent-foreground: 14 50% 16%;
+
+    --destructive: 0 75% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 28 25% 86%;
+    --input: 28 25% 86%;
+    --ring: 18 97% 48%;
+
+    --radius: 1rem;
+
+    --gradient-cta: linear-gradient(135deg, hsl(13 99% 41%) 0%, hsl(18 97% 48%) 55%, hsl(28 98% 56%) 100%);
+    --gradient-vibrant: linear-gradient(135deg, hsl(13 99% 41%) 0%, hsl(21 96% 50%) 55%, hsl(32 99% 61%) 100%);
+    --shadow-card: 0 1px 2px hsl(13 60% 15% / 0.05), 0 6px 20px hsl(13 60% 15% / 0.10);
+    --shadow-cta: 0 8px 24px hsl(18 97% 48% / 0.45), 0 2px 6px hsl(13 99% 30% / 0.25);
+    --shadow-glow: 0 0 40px hsl(32 99% 61% / 0.45);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative overflow-hidden text-white font-bold py-4 px-8 rounded-full;
+    background: var(--gradient-cta);
+    box-shadow: var(--shadow-cta);
+    transition: transform 0.18s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.28) 45%,
+      rgba(255, 255, 255, 0.12) 55%,
+      transparent 60%,
+      transparent 100%
+    );
+    transform: skewX(-15deg);
+    pointer-events: none;
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .check-badge {
+    @apply w-5 h-5 rounded-full flex items-center justify-center;
+    background: hsl(var(--success));
+    box-shadow: 0 2px 6px hsl(var(--success) / 0.30);
+  }
+
+  .feature-card-lp {
+    @apply relative rounded-2xl overflow-hidden bg-card;
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .highlight-pill {
+    @apply inline-block px-2 py-0.5 rounded-md text-white;
+    background: var(--gradient-cta);
+    box-shadow: 0 2px 8px hsl(18 97% 48% / 0.35);
+  }
+}
