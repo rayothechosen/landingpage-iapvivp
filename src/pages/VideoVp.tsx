@@ -6,6 +6,44 @@ import CtaButton from "@/components/CtaButton";
 
 const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQCJC5";
 
+const vpBonusCards = [
+  {
+    image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/ChatGPT%20Image%205%20de%20jun.%20de%202026%2C%2018_12_36.png",
+    title: "Gerador de Modelos de IA",
+    alt: "Gerador de Modelos de IA",
+    description: "Crie sua própria modelo em segundos para usar nos vídeos, mesmo sem ter foto pronta, cenário bonito ou querer aparecer.",
+  },
+  {
+    image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/publicador.png",
+    title: "Publicador Automático",
+    alt: "Publicador Automático",
+    description: "Depois que o vídeo fica pronto, você pode publicar na hora ou deixar programado. Use para postar na Shopee Video, TikTok e Instagram sem precisar fazer tudo manualmente todos os dias.",
+  },
+  {
+    image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20PRODUTOS.png",
+    title: "Produtos em Alta",
+    alt: "Produtos em Alta",
+    description: "Veja quais produtos afiliadas estão divulgando e vendendo na Shopee. A área é atualizada semanalmente com base em produtos, nichos e oportunidades para você divulgar.",
+  },
+  {
+    image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20TREINAMENTO.png",
+    title: "Treinamento Prático e Rápido",
+    alt: "Treinamento Prático e Rápido",
+    description: "Acesse um treinamento rápido e sem enrolação, ensinando como usar todas as ferramentas da plataforma pelo celular e começar a colocar em prática.",
+  },
+];
+
+const vpFaqItems = [
+  { question: "Isso é difícil de usar?", answer: "Não. O processo foi pensado para ser simples, visual e direto, mesmo para quem nunca usou esse tipo de tecnologia antes." },
+  { question: "Eu preciso saber editar vídeo?", answer: "Não. O sistema já facilita a parte principal da geração e ainda conta com recursos como edição automática e legendas." },
+  { question: "Eu preciso aparecer?", answer: "Não. Você pode usar sua própria foto ou uma modelo criada por IA." },
+  { question: "Eu preciso ter o produto em mãos?", answer: "Não. Essa é justamente uma das maiores vantagens do sistema." },
+  { question: "O que exatamente eu consigo criar com isso?", answer: "Você pode criar vídeos de produto, unboxing, review, vídeos com modelo, criativos, personagens e vídeos com muito mais cara de próprios." },
+  { question: "Isso serve para Shopee Vídeo?", answer: "Sim. Você pode usar para Shopee Vídeo e outros canais onde quiser publicar seus vídeos." },
+  { question: "Vou aprender só a gerar o vídeo ou também como aplicar?", answer: "Você vai aprender os dois. O sistema mostra como gerar e o método mostra como aplicar isso na prática." },
+  { question: "E se eu não gostar?", answer: "Você tem 7 dias de garantia. Se não gostar, basta solicitar o reembolso dentro do prazo." },
+];
+
 const VideoVp = () => {
   useEffect(() => {
     const s = document.createElement("script");
@@ -22,7 +60,7 @@ const VideoVp = () => {
     <div className="min-h-screen bg-background">
       {/* ===== FAIXA TOPO ===== */}
       <div className="w-full bg-accent text-black text-center py-2.5 px-3 font-bold text-sm">
-        DE GRAÇA POR 3 DIAS
+        Feito para Afiliadas Shopee
       </div>
 
       {/* ===== HERO COM VÍDEO ===== */}
@@ -112,18 +150,9 @@ const VideoVp = () => {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="w-full rounded-2xl overflow-hidden ring-1 ring-white/10"
+                className="w-full rounded-2xl overflow-hidden"
               >
-                <img src="https://pub-e79c36fa1fb84177b4cf2c066a2fefae.r2.dev/giftopo.gif" alt="Exemplo vídeo próprio 1" className="w-full h-auto" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="w-full rounded-2xl overflow-hidden ring-1 ring-white/10"
-              >
-                <img src="https://pub-e79c36fa1fb84177b4cf2c066a2fefae.r2.dev/gifbaixo.gif" alt="Exemplo vídeo próprio 2" className="w-full h-auto" />
+                <img src="https://pub-e79c36fa1fb84177b4cf2c066a2fefae.r2.dev/gifbaixo.gif" alt="Exemplo vídeo próprio" className="w-full h-auto" />
               </motion.div>
             </div>
 
@@ -137,7 +166,7 @@ const VideoVp = () => {
                 variant="scroll"
                 className="btn-primary flex items-center justify-center w-full text-center text-base"
               >
-                QUERO TESTAR GRÁTIS
+                QUERO CRIAR VÍDEOS PRÓPRIOS
               </CtaButton>
             </motion.div>
           </div>
@@ -148,20 +177,35 @@ const VideoVp = () => {
           vslMode
           theme="vp"
           darkFeatureCard
+          ctaLabel="QUERO CRIAR VÍDEOS PRÓPRIOS"
+          depoimentosCtaLabel="QUERO CRIAR VÍDEOS PRÓPRIOS"
+          featuresSectionSubtitle="Tudo isso liberado hoje"
           ofertaImage="https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CAPAOFERTA%20VIDEOSPROPRIOS.png"
           ofertaTitle="Ferramenta Vídeos Próprios + Bônus Exclusivos"
-          ofertaHeading="Chegou a sua hora de criar Vídeos Próprios e testar vários Bônus Exclusivos!"
+          ofertaHeading="Chegou a sua hora de criar Vídeos Próprios e vender como Afiliada Shopee"
+          ofertaSubtitle="Aproveite a oferta de hoje e receba acesso imediato a tudo isso:"
+          ofertaBannerLabel="ACESSO IMEDIATO"
+          showTrialPricing={false}
+          paidPrice="17,90"
+          ofertaCtaLabel="COMPRAR AGORA"
+          showTrialNote={false}
+          garantiaTitle="Garantia de 7 dias"
+          garantiaBody="Se por qualquer motivo você não estiver satisfeita, basta solicitar o reembolso dentro de 7 dias. Você recebe 100% do seu dinheiro de volta, sem perguntas ou burocracias."
+          showPorQueLiberamos={false}
+          depoimentosGroup3Title="Sem saber nada de tecnologia e gerando comissões"
+          depoimentosGroup3Items={[
+            { image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/dp-05.png", alt: "Depoimento afiliada Shopee 5" },
+            { image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/dp-06.png", alt: "Depoimento afiliada Shopee 6" },
+          ]}
           comparativoTestItem="Crie vídeos próprios."
           pageOfertaItems={[
             "Ferramenta Vídeos Próprios",
-            "Inteligência Artificial que posta por você",
-            "+10.700 Vídeos Prontos",
-            "Ferramenta Produto em Vídeo",
-            "Bot Grupos de Ofertas",
-            "+512 Carrosséis Prontos",
-            "+1.052 Stories Prontos",
+            "Gerador de Modelos IA",
+            "Publicador Automático",
             "Produtos em Alta",
             "Treinamento Prático e Rápido",
+            "Acesso pelo Celular",
+            "Suporte por WhatsApp",
           ]}
           pageFeatures={[
             {
@@ -171,56 +215,8 @@ const VideoVp = () => {
               description: "Uma das ferramentas mais exclusivas para afiliadas. Ela transforma vídeos de referência em vídeos próprios, com seu rosto ou até com uma modelo de IA, sem precisar aparecer, gravar, editar ou ter o produto em mãos.",
             },
           ]}
-          pageBonusCards={[
-            {
-              image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20IAVIDEOS.jpg",
-              title: "Inteligência Artificial que posta por você",
-              alt: "Inteligência Artificial que posta por você",
-              description: "Uma inteligência artificial que posta por você nos melhores horários, com as melhores hashtags e usando um pack com mais de 10.700 vídeos prontos para afiliadas Shopee.",
-            },
-            {
-              image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%2010K.png",
-              title: "+10.700 Vídeos Prontos",
-              alt: "+10.700 Vídeos Prontos",
-              description: "Tenha acesso ao maior pack de vídeos feito para afiliadas Shopee, com todos os vídeos organizados por nicho, editados, sem metadados e prontos para postar no seu perfil.",
-            },
-            {
-              image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20PVI.jpg",
-              title: "Ferramenta Produto em Vídeo",
-              alt: "Ferramenta Produto em Vídeo",
-              description: "Acesse uma ferramenta que transforma qualquer produto da Shopee em vídeos prontos. Basta colar o link, escolher os estilos de vídeo que deseja gerar e receber conteúdos prontos para postar.",
-            },
-            {
-              image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20GRUPOS.jpg",
-              title: "Bot Grupos de Ofertas",
-              alt: "Bot Grupos de Ofertas",
-              description: "Teste um bot inteligente que cria, configura, divulga e envia ofertas nos seus grupos de WhatsApp.",
-            },
-            {
-              image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20CARROSSEIS.png",
-              title: "+512 Carrosséis Prontos",
-              alt: "+512 Carrosséis Prontos",
-              description: "Acesse mais de 500 carrosséis prontos para postar, criados pela nossa equipe de design e organizados por produto e nicho.",
-            },
-            {
-              image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20STORIES.png",
-              title: "+1.052 Stories Prontos",
-              alt: "+1.052 Stories Prontos",
-              description: "Acesse mais de 1.000 stories prontos para postar, organizados por produto e nicho.",
-            },
-            {
-              image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20PRODUTOS.png",
-              title: "Produtos em Alta",
-              alt: "Produtos em Alta",
-              description: "Veja quais produtos afiliadas estão divulgando e vendendo na Shopee. A área é atualizada semanalmente.",
-            },
-            {
-              image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20TREINAMENTO.png",
-              title: "Treinamento Prático e Rápido",
-              alt: "Treinamento Prático e Rápido",
-              description: "Acesse um treinamento rápido e sem enrolação, ensinando como usar todas as ferramentas da plataforma pelo celular.",
-            },
-          ]}
+          pageBonusCards={vpBonusCards}
+          pageFaqItems={vpFaqItems}
         />
       </div>
     </div>

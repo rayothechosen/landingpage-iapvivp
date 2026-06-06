@@ -1,11 +1,29 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 import { useEffect, useState } from "react";
-const bannerTopo = "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/TOPO%20PRODUTOEMVIDEOS.png";
+const GIF_PLACEHOLDER = "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/giftopo%20(1).png";
+const GIF_SRC = "https://pub-e79c36fa1fb84177b4cf2c066a2fefae.r2.dev/giftopo.gif";
 import LandingBody from "@/components/LandingBody";
 import CtaButton from "@/components/CtaButton";
 
 const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQC6Q1";
+
+const GifWithPlaceholder = () => {
+  const [gifLoaded, setGifLoaded] = useState(false);
+  return (
+    <div className="relative w-full rounded-2xl overflow-hidden" style={{ isolation: "isolate" }}>
+      {!gifLoaded && (
+        <img src={GIF_PLACEHOLDER} alt="Vídeos Próprios" className="w-full h-auto" />
+      )}
+      <img
+        src={GIF_SRC}
+        alt="Vídeos Próprios"
+        className={`w-full h-auto ${gifLoaded ? "block" : "hidden"}`}
+        onLoad={() => setGifLoaded(true)}
+      />
+    </div>
+  );
+};
 
 const useCountdown = (initialMinutes: number) => {
   const [totalSeconds, setTotalSeconds] = useState(initialMinutes * 60);
@@ -20,6 +38,44 @@ const useCountdown = (initialMinutes: number) => {
   const seconds = totalSeconds % 60;
   return { minutes, seconds };
 };
+
+const vpBonusCards = [
+  {
+    image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/ChatGPT%20Image%205%20de%20jun.%20de%202026%2C%2018_12_36.png",
+    title: "Gerador de Modelos de IA",
+    alt: "Gerador de Modelos de IA",
+    description: "Crie sua própria modelo em segundos para usar nos vídeos, mesmo sem ter foto pronta, cenário bonito ou querer aparecer.",
+  },
+  {
+    image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/publicador.png",
+    title: "Publicador Automático",
+    alt: "Publicador Automático",
+    description: "Depois que o vídeo fica pronto, você pode publicar na hora ou deixar programado. Use para postar na Shopee Video, TikTok e Instagram sem precisar fazer tudo manualmente todos os dias.",
+  },
+  {
+    image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20PRODUTOS.png",
+    title: "Produtos em Alta",
+    alt: "Produtos em Alta",
+    description: "Veja quais produtos afiliadas estão divulgando e vendendo na Shopee. A área é atualizada semanalmente com base em produtos, nichos e oportunidades para você divulgar.",
+  },
+  {
+    image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20TREINAMENTO.png",
+    title: "Treinamento Prático e Rápido",
+    alt: "Treinamento Prático e Rápido",
+    description: "Acesse um treinamento rápido e sem enrolação, ensinando como usar todas as ferramentas da plataforma pelo celular e começar a colocar em prática.",
+  },
+];
+
+const vpFaqItems = [
+  { question: "Isso é difícil de usar?", answer: "Não. O processo foi pensado para ser simples, visual e direto, mesmo para quem nunca usou esse tipo de tecnologia antes." },
+  { question: "Eu preciso saber editar vídeo?", answer: "Não. O sistema já facilita a parte principal da geração e ainda conta com recursos como edição automática e legendas." },
+  { question: "Eu preciso aparecer?", answer: "Não. Você pode usar sua própria foto ou uma modelo criada por IA." },
+  { question: "Eu preciso ter o produto em mãos?", answer: "Não. Essa é justamente uma das maiores vantagens do sistema." },
+  { question: "O que exatamente eu consigo criar com isso?", answer: "Você pode criar vídeos de produto, unboxing, review, vídeos com modelo, criativos, personagens e vídeos com muito mais cara de próprios." },
+  { question: "Isso serve para Shopee Vídeo?", answer: "Sim. Você pode usar para Shopee Vídeo e outros canais onde quiser publicar seus vídeos." },
+  { question: "Vou aprender só a gerar o vídeo ou também como aplicar?", answer: "Você vai aprender os dois. O sistema mostra como gerar e o método mostra como aplicar isso na prática." },
+  { question: "E se eu não gostar?", answer: "Você tem 7 dias de garantia. Se não gostar, basta solicitar o reembolso dentro do prazo." },
+];
 
 const LpVp = () => {
   const { minutes, seconds } = useCountdown(15);
@@ -40,7 +96,7 @@ const LpVp = () => {
       {/* ===== COUNTDOWN BAR ===== */}
       <div className="w-full py-2.5 px-4 text-center bg-accent">
         <p className="text-black text-sm font-bold tracking-wide">
-          <span>Teste grátis acaba em </span>
+          <span>Oferta acaba em: </span>
           <span className="inline-flex items-center gap-0.5 font-extrabold text-base">
             <span className="bg-black text-white rounded-md px-1.5 py-0.5 min-w-[28px] text-center tabular-nums">
               {String(minutes).padStart(2, "0")}
@@ -73,16 +129,31 @@ const LpVp = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-2xl md:text-4xl font-extrabold leading-[1.4] mb-5 text-zinc-950"
+            className="text-2xl md:text-4xl font-extrabold leading-[1.4] mb-4 text-zinc-950"
           >
             Crie{" "}
             <span className="inline-block whitespace-nowrap px-2 py-0.5 rounded-md text-white" style={{ background: "var(--gradient-cta)" }}>Vídeos Próprios</span>
             {" "}que vendem como Afiliada Shopee
-            <span className="block text-lg font-bold text-muted-foreground mt-3">
-              Teste de graça por{" "}
-              <span className="inline-block px-2 py-0.5 rounded-md text-white text-lg font-extrabold" style={{ background: "var(--gradient-cta)" }}>3 Dias</span>
-            </span>
           </motion.h1>
+
+          {/* ===== BADGES ===== */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="flex flex-wrap justify-center gap-2 mb-6"
+          >
+            {["SEM CENÁRIO", "SEM PRODUTO", "SEM APARECER"].map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white text-xs font-bold tracking-wide"
+                style={{ background: "var(--gradient-cta)" }}
+              >
+                <Check className="w-3 h-3" />
+                {label}
+              </span>
+            ))}
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -90,7 +161,7 @@ const LpVp = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="md:text-sm text-muted-foreground leading-relaxed mb-7 max-w-md mx-auto text-xs font-sans"
           >
-            Acesse de graça por 3 dias uma ferramenta que cria vídeos próprios, você cola o link do vídeo que gostou, escolhe sua foto ou sua modelo de IA e a ferramenta gera e posta por você. Nada será cobrado hoje!
+            Você cola o link do vídeo que gostou, escolhe sua foto ou sua modelo e o sistema gera tudo pronto para postar.
           </motion.p>
 
           <motion.div
@@ -99,14 +170,14 @@ const LpVp = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="w-full max-w-md mx-auto mb-7"
           >
-            <img src={bannerTopo} alt="Kit Afiliada IA - vídeos prontos e inteligência artificial" className="w-full h-auto" />
+            <GifWithPlaceholder />
           </motion.div>
 
           <CtaButton
             checkoutLink={CHECKOUT_LINK}
             className="btn-primary flex items-center justify-center w-full max-w-md mx-auto text-center text-base"
           >
-            ATIVAR MEUS 3 DIAS GRÁTIS
+            QUERO CRIAR VÍDEOS PRÓPRIOS
           </CtaButton>
         </div>
       </section>
@@ -144,7 +215,7 @@ const LpVp = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground mb-6 max-w-lg mx-auto font-sans text-sm"
           >
-            O vídeo tem apenas 1 minuto. Veja o que fica liberado no teste grátis e entenda por que nada será cobrado hoje.
+            O vídeo tem apenas 1 minuto. Veja como funciona a ferramenta.
           </motion.p>
 
           <motion.div
@@ -165,7 +236,7 @@ const LpVp = () => {
             checkoutLink={CHECKOUT_LINK}
             className="btn-primary flex items-center justify-center w-full text-center text-base"
           >
-            ATIVAR MEUS 3 DIAS GRÁTIS
+            QUERO CRIAR VÍDEOS PRÓPRIOS
           </CtaButton>
         </div>
       </section>
@@ -193,18 +264,9 @@ const LpVp = () => {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="w-full rounded-2xl overflow-hidden ring-1 ring-white/10"
+              className="w-full rounded-2xl overflow-hidden"
             >
-              <img src="https://pub-e79c36fa1fb84177b4cf2c066a2fefae.r2.dev/giftopo.gif" alt="Exemplo vídeo próprio 1" className="w-full h-auto" />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="w-full rounded-2xl overflow-hidden ring-1 ring-white/10"
-            >
-              <img src="https://pub-e79c36fa1fb84177b4cf2c066a2fefae.r2.dev/gifbaixo.gif" alt="Exemplo vídeo próprio 2" className="w-full h-auto" />
+              <img src="https://pub-e79c36fa1fb84177b4cf2c066a2fefae.r2.dev/gifbaixo.gif" alt="Exemplo vídeo próprio" className="w-full h-auto" />
             </motion.div>
           </div>
 
@@ -217,7 +279,7 @@ const LpVp = () => {
               checkoutLink={CHECKOUT_LINK}
               className="btn-primary flex items-center justify-center w-full text-center text-base"
             >
-              QUERO TESTAR GRÁTIS
+              QUERO CRIAR VÍDEOS PRÓPRIOS
             </CtaButton>
           </motion.div>
         </div>
@@ -227,84 +289,46 @@ const LpVp = () => {
         checkoutLink={CHECKOUT_LINK}
         theme="vp"
         darkFeatureCard
+        ctaLabel="QUERO CRIAR VÍDEOS PRÓPRIOS"
+        depoimentosCtaLabel="QUERO CRIAR VÍDEOS PRÓPRIOS"
+        featuresSectionSubtitle="Tudo isso liberado hoje"
         ofertaImage="https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CAPAOFERTA%20VIDEOSPROPRIOS.png"
         ofertaTitle="Ferramenta Vídeos Próprios + Bônus Exclusivos"
-        ofertaHeading="Chegou a sua hora de criar Vídeos Próprios e testar vários Bônus Exclusivos!"
+        ofertaHeading="Chegou a sua hora de criar Vídeos Próprios e vender como Afiliada Shopee"
+        ofertaSubtitle="Aproveite a oferta de hoje e receba acesso imediato a tudo isso:"
+        ofertaBannerLabel="ACESSO IMEDIATO"
+        showTrialPricing={false}
+        paidPrice="17,90"
+        ofertaCtaLabel="COMPRAR AGORA"
+        showTrialNote={false}
+        garantiaTitle="Garantia de 7 dias"
+        garantiaBody="Se por qualquer motivo você não estiver satisfeita, basta solicitar o reembolso dentro de 7 dias. Você recebe 100% do seu dinheiro de volta, sem perguntas ou burocracias."
+        showPorQueLiberamos={false}
+        depoimentosGroup3Title="Sem saber nada de tecnologia e gerando comissões"
+        depoimentosGroup3Items={[
+          { image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/dp-05.png", alt: "Depoimento afiliada Shopee 5" },
+          { image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/dp-06.png", alt: "Depoimento afiliada Shopee 6" },
+        ]}
         comparativoTestItem="Crie vídeos próprios."
         pageOfertaItems={[
           "Ferramenta Vídeos Próprios",
-          "Inteligência Artificial que posta por você",
-          "+10.700 Vídeos Prontos",
-          "Ferramenta Produto em Vídeo",
-          "Bot Grupos de Ofertas",
-          "+512 Carrosséis Prontos",
-          "+1.052 Stories Prontos",
+          "Gerador de Modelos IA",
+          "Publicador Automático",
           "Produtos em Alta",
           "Treinamento Prático e Rápido",
+          "Acesso pelo Celular",
+          "Suporte por WhatsApp",
         ]}
         pageFeatures={[
           {
             image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20VP.jpg",
             title: "Ferramenta Vídeos Próprios",
             alt: "Ferramenta Vídeos Próprios",
-            description:
-              "Uma das ferramentas mais exclusivas para afiliadas. Ela transforma vídeos de referência em vídeos próprios, com seu rosto ou até com uma modelo de IA, sem precisar aparecer, gravar, editar ou ter o produto em mãos.",
+            description: "Uma das ferramentas mais exclusivas para afiliadas. Ela transforma vídeos de referência em vídeos próprios, com seu rosto ou até com uma modelo de IA, sem precisar aparecer, gravar, editar ou ter o produto em mãos.",
           },
         ]}
-        pageBonusCards={[
-          {
-            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20IAVIDEOS.jpg",
-            title: "Inteligência Artificial que posta por você",
-            alt: "Inteligência Artificial que posta por você",
-            description:
-              "Uma inteligência artificial que posta por você nos melhores horários, com as melhores hashtags e usando um pack com mais de 10.700 vídeos prontos para afiliadas Shopee.",
-          },
-          {
-            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%2010K.png",
-            title: "+10.700 Vídeos Prontos",
-            alt: "+10.700 Vídeos Prontos",
-            description:
-              "Tenha acesso ao maior pack de vídeos feito para afiliadas Shopee, com todos os vídeos organizados por nicho, editados, sem metadados e prontos para postar no seu perfil.",
-          },
-          {
-            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20PVI.jpg",
-            title: "Ferramenta Produto em Vídeo",
-            alt: "Ferramenta Produto em Vídeo",
-            description:
-              "Acesse uma ferramenta que transforma qualquer produto da Shopee em vídeos prontos. Basta colar o link, escolher os estilos de vídeo que deseja gerar e receber conteúdos prontos para postar.",
-          },
-          {
-            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20GRUPOS.jpg",
-            title: "Bot Grupos de Ofertas",
-            alt: "Bot Grupos de Ofertas",
-            description:
-              "Teste um bot inteligente que cria, configura, divulga e envia ofertas nos seus grupos de WhatsApp. Ele foi feito para ajudar afiliadas a movimentarem grupos de ofertas todos os dias no automático.",
-          },
-          {
-            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20CARROSSEIS.png",
-            title: "+512 Carrosséis Prontos",
-            alt: "+512 Carrosséis Prontos",
-            description: "Acesse mais de 500 carrosséis prontos para postar, criados pela nossa equipe de design e organizados por produto e nicho.",
-          },
-          {
-            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20STORIES.png",
-            title: "+1.052 Stories Prontos",
-            alt: "+1.052 Stories Prontos",
-            description: "Acesse mais de 1.000 stories prontos para postar, organizados por produto e nicho. Todos os dias novos stories são adicionados.",
-          },
-          {
-            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20PRODUTOS.png",
-            title: "Produtos em Alta",
-            alt: "Produtos em Alta",
-            description: "Veja quais produtos afiliadas estão divulgando e vendendo na Shopee. A área é atualizada semanalmente.",
-          },
-          {
-            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20TREINAMENTO.png",
-            title: "Treinamento Prático e Rápido",
-            alt: "Treinamento Prático e Rápido",
-            description: "Acesse um treinamento rápido e sem enrolação, ensinando como usar todas as ferramentas da plataforma pelo celular.",
-          },
-        ]}
+        pageBonusCards={vpBonusCards}
+        pageFaqItems={vpFaqItems}
       />
     </div>
   );

@@ -24,7 +24,7 @@ const VideoGrupos = () => {
     <div className="min-h-screen bg-background">
       {/* ===== FAIXA TOPO ===== */}
       <div className="w-full bg-accent text-black text-center py-2.5 px-3 font-bold text-sm">
-        DE GRAÇA POR 3 DIAS
+        Feito para Afiliadas Shopee
       </div>
 
       {/* ===== HERO COM VÍDEO ===== */}

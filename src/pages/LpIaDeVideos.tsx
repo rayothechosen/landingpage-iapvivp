@@ -5,7 +5,7 @@ const bannerTopo = "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/TOPO%20I
 import LandingBody from "@/components/LandingBody";
 import CtaButton from "@/components/CtaButton";
 
-const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQC6Q1";
+const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQBKNI";
 
 const useCountdown = (initialMinutes: number) => {
   const [totalSeconds, setTotalSeconds] = useState(initialMinutes * 60);
@@ -40,7 +40,7 @@ const LpIaDeVideos = () => {
       {/* ===== COUNTDOWN BAR ===== */}
       <div className="w-full py-2.5 px-4 text-center bg-accent">
         <p className="text-black text-sm font-bold tracking-wide">
-          <span>Teste grátis acaba em </span>
+          <span>Oferta acaba em: </span>
           <span className="inline-flex items-center gap-0.5 font-extrabold text-base">
             <span className="bg-black text-white rounded-md px-1.5 py-0.5 min-w-[28px] text-center tabular-nums">
               {String(minutes).padStart(2, "0")}
@@ -78,10 +78,6 @@ const LpIaDeVideos = () => {
             +10.700 Vídeos Prontos com{" "}
             <span className="inline px-2 py-0.5 rounded-md text-white" style={{ background: "var(--gradient-cta)" }}>Inteligência Artificial</span>
             {" "}que posta por você
-            <span className="block text-lg font-bold text-muted-foreground mt-3">
-              Teste de graça por{" "}
-              <span className="inline-block px-2 py-0.5 rounded-md bg-accent text-black text-lg font-extrabold">3 Dias</span>
-            </span>
           </motion.h1>
 
           <motion.p
@@ -90,7 +86,7 @@ const LpIaDeVideos = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="md:text-sm text-muted-foreground leading-relaxed mb-7 max-w-md mx-auto text-xs font-sans"
           >
-            Acesse de graça por 3 dias um pack com +10.700 vídeos e uma inteligência artificial que posta por você como afiliada Shopee. Nada será cobrado hoje!
+            Tenha acesso a um pack com +10.700 vídeos e uma inteligência artificial que posta por você nos melhores horários e hashtags para viralizar e vender como afiliada Shopee.
           </motion.p>
 
           <motion.div
@@ -106,7 +102,7 @@ const LpIaDeVideos = () => {
             checkoutLink={CHECKOUT_LINK}
             className="btn-primary flex items-center justify-center w-full max-w-md mx-auto text-center text-base"
           >
-            ATIVAR MEUS 3 DIAS GRÁTIS
+            QUERO INTELIGÊNCIA ARTIFICIAL
           </CtaButton>
         </div>
       </section>
@@ -144,7 +140,7 @@ const LpIaDeVideos = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground mb-6 max-w-lg mx-auto font-sans text-sm"
           >
-            O vídeo tem apenas 1 minuto. Veja o que fica liberado no teste grátis e entenda por que nada será cobrado hoje.
+            O vídeo tem apenas 1 minuto. Veja tudo que você vai receber hoje.
           </motion.p>
 
           <motion.div
@@ -165,12 +161,66 @@ const LpIaDeVideos = () => {
             checkoutLink={CHECKOUT_LINK}
             className="btn-primary flex items-center justify-center w-full text-center text-base"
           >
-            ATIVAR MEUS 3 DIAS GRÁTIS
+            QUERO INTELIGÊNCIA ARTIFICIAL
           </CtaButton>
         </div>
       </section>
 
-      <LandingBody checkoutLink={CHECKOUT_LINK} />
+      <LandingBody
+        checkoutLink={CHECKOUT_LINK}
+        ctaLabel="QUERO INTELIGÊNCIA ARTIFICIAL"
+        depoimentosBgOverride="#0f0f0f"
+        depoimentosTitle="Quem usou mudou de vida"
+        depoimentosCtaLabel="QUERO INTELIGÊNCIA ARTIFICIAL"
+        featuresSectionSubtitle="Tudo isso liberado hoje"
+        ofertaHeading="Chegou a sua hora de usar a Inteligência Artificial e vender no automático!"
+        ofertaSubtitle="Aproveite a oferta de hoje e receba acesso imediato a tudo isso:"
+        ofertaBannerLabel="ACESSO IMEDIATO"
+        showTrialPricing={false}
+        paidPrice="17,90"
+        ofertaCtaLabel="COMPRAR AGORA"
+        showTrialNote={false}
+        garantiaTitle="Garantia de 7 dias"
+        garantiaBody="Se por qualquer motivo você não estiver satisfeita, basta solicitar o reembolso dentro de 7 dias. Você recebe 100% do seu dinheiro de volta, sem perguntas ou burocracias."
+        showPorQueLiberamos={false}
+        pageBonusCards={[
+          {
+            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20GRUPOS.jpg",
+            title: "Bot Grupos de Ofertas",
+            alt: "Bot Grupos de Ofertas",
+            description: "Tenha um bot inteligente que cria, configura, divulga e envia ofertas nos seus grupos de WhatsApp. Ele foi feito para ajudar afiliadas a movimentarem grupos de ofertas todos os dias no automático.",
+          },
+          {
+            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20PRODUTOS.png",
+            title: "Produtos em Alta",
+            alt: "Produtos em Alta",
+            description: "Veja quais produtos afiliadas estão divulgando e vendendo na Shopee. A área é atualizada semanalmente com base em produtos, nichos e oportunidades para você divulgar.",
+          },
+          {
+            image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%20TREINAMENTO.png",
+            title: "Treinamento Prático e Rápido",
+            alt: "Treinamento Prático e Rápido",
+            description: "Acesse um treinamento rápido e sem enrolação, ensinando como usar todas as ferramentas da plataforma pelo celular e começar a colocar em prática.",
+          },
+        ]}
+        pageOfertaItems={[
+          "Inteligência Artificial que posta por você",
+          "+10.700 Vídeos Prontos",
+          "Bot Grupos de Ofertas",
+          "Produtos em Alta",
+          "Treinamento Prático e Rápido",
+        ]}
+        pageFaqItems={[
+          { question: "Preciso aparecer para vender como afiliada?", answer: "Não. A plataforma foi pensada justamente para quem quer vender como afiliada sem precisar aparecer, gravar vídeos ou mostrar o rosto. Você pode usar vídeos prontos, conteúdos organizados e ferramentas com IA para divulgar os produtos." },
+          { question: "Funciona pelo celular?", answer: "Sim. Você consegue acessar a plataforma pelo celular e usar os conteúdos e ferramentas de forma simples, sem precisar de computador." },
+          { question: "Preciso saber editar vídeos?", answer: "Não. Os vídeos já são entregues prontos para usar. Além disso, as ferramentas com IA ajudam a criar conteúdos sem você precisar entender de edição." },
+          { question: "Como recebo acesso?", answer: "Após a compra, você recebe os dados de acesso no e-mail cadastrado. Com eles, é só entrar na plataforma e começar a usar os conteúdos, vídeos, bônus e ferramentas disponíveis." },
+          { question: "A IA posta em quais redes?", answer: "A IA foi criada para facilitar a criação e publicação de conteúdos em redes como Instagram, TikTok e outras plataformas de vídeo curto, de acordo com as configurações disponíveis na sua conta." },
+          { question: "Recebo treinamento para usar tudo?", answer: "Sim. Dentro da plataforma você encontra um treinamento prático mostrando como acessar os materiais, usar as ferramentas e começar a divulgar como afiliada mesmo que esteja começando do zero." },
+          { question: "Como funciona a garantia?", answer: "Você tem 7 dias de garantia. Se acessar a plataforma e entender que ela não é para você, basta solicitar o reembolso dentro desse prazo, conforme as regras da garantia." },
+          { question: "Preciso ter experiência para usar?", answer: "Não. A Afiliada Prime foi feita para iniciantes também. Você recebe materiais prontos, ferramentas simples e orientação para começar mesmo sem experiência com afiliados, edição ou criação de conteúdo." },
+        ]}
+      />
     </div>
   );
 };

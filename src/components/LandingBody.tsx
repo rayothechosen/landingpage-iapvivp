@@ -13,7 +13,7 @@ const features = [
     title: "Inteligência Artificial que posta por você",
     alt: "Inteligência Artificial que posta por você",
     description:
-      "Teste por 3 dias de graça uma inteligência artificial que posta por você nos melhores horários, com as melhores hashtags e usando um pack com mais de 10.700 vídeos prontos para afiliadas Shopee.",
+      "Inteligência artificial que posta por você nos melhores horários, com as melhores hashtags e usando um pack com mais de 10.700 vídeos prontos para afiliadas Shopee.",
   },
   {
     image: "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/CARD%2010K.png",
@@ -103,6 +103,17 @@ const faqItems = [
   { question: "Isso garante comissão?", answer: "Não. O Kit entrega estrutura, vídeos e organização, mas seus resultados dependem da sua aplicação e consistência." },
 ];
 
+const faqItemsIaVideos = [
+  { question: "Preciso aparecer para vender como afiliada?", answer: "" },
+  { question: "Funciona pelo celular?", answer: "" },
+  { question: "Preciso saber editar vídeos?", answer: "" },
+  { question: "Como recebo acesso?", answer: "" },
+  { question: "A IA posta em quais redes?", answer: "" },
+  { question: "Recebo treinamento para usar tudo?", answer: "" },
+  { question: "Como funciona a garantia?", answer: "" },
+  { question: "Preciso ter experiência para usar?", answer: "" },
+];
+
 const ofertaItems = [
   "+10.700 Vídeos Prontos",
   "Ferramenta Produto em Vídeo",
@@ -135,6 +146,23 @@ interface LandingBodyProps {
   ctaClassName?: string;
   ctaStyle?: React.CSSProperties;
   darkFeatureCard?: boolean;
+  depoimentosBgOverride?: string;
+  depoimentosGroup3Title?: string;
+  depoimentosGroup3Items?: { image: string; alt: string }[];
+  ctaLabel?: string;
+  depoimentosTitle?: string;
+  depoimentosCtaLabel?: string;
+  featuresSectionSubtitle?: string;
+  ofertaSubtitle?: string;
+  ofertaBannerLabel?: string;
+  showTrialPricing?: boolean;
+  paidPrice?: string;
+  ofertaCtaLabel?: string;
+  showTrialNote?: boolean;
+  garantiaTitle?: string;
+  garantiaBody?: string;
+  pageFaqItems?: { question: string; answer: string }[];
+  showPorQueLiberamos?: boolean;
 }
 
 const THEMES = {
@@ -191,7 +219,7 @@ const THEMES = {
 const WA_CTA = "flex items-center justify-center w-full text-center text-base text-white font-bold py-4 px-8 rounded-full";
 const WA_STYLE: React.CSSProperties = { background: "linear-gradient(135deg, #075E54 0%, #128C7E 100%)", boxShadow: "0 8px 24px rgba(7,94,84,0.45)" };
 
-const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCards, ofertaImage, ofertaTitle, pageOfertaItems, ofertaHeading, comparativoTestItem, theme = "default", ctaClassName, ctaStyle, darkFeatureCard = false }: LandingBodyProps) => {
+const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCards, ofertaImage, ofertaTitle, pageOfertaItems, ofertaHeading, comparativoTestItem, theme = "default", ctaClassName, ctaStyle, darkFeatureCard = false, depoimentosBgOverride, depoimentosGroup3Title, depoimentosGroup3Items, ctaLabel, depoimentosTitle, depoimentosCtaLabel, featuresSectionSubtitle, ofertaSubtitle, ofertaBannerLabel, showTrialPricing = true, paidPrice, ofertaCtaLabel, showTrialNote = true, garantiaTitle, garantiaBody, pageFaqItems, showPorQueLiberamos = true }: LandingBodyProps) => {
   const t = THEMES[theme];
   const activeCta = ctaClassName ?? "btn-primary flex items-center justify-center w-full text-center text-base";
   const activeCtaStyle = ctaStyle ?? undefined;
@@ -202,6 +230,16 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
   const activeOfertaItems = pageOfertaItems ?? ofertaItems;
   const activeOfertaHeading = ofertaHeading ?? "Chegou a sua hora de testar a IA das Afiliadas Shopee";
   const activeComparativoTestItem = comparativoTestItem ?? "Testa a IA e +10.700 vídeos.";
+  const activeCtaLabel = ctaLabel ?? "ATIVAR MEUS 3 DIAS GRÁTIS";
+  const activeDepoimentosTitle = depoimentosTitle ?? "Quem testou não parou de usar";
+  const activeDepoimentosCtaLabel = depoimentosCtaLabel ?? "QUERO TESTAR GRÁTIS AGORA";
+  const activeFeaturesSectionSubtitle = featuresSectionSubtitle ?? "Tudo isso liberado para testar por 3 dias grátis";
+  const activeOfertaSubtitle = ofertaSubtitle ?? "Aproveite a liberação gratuita de hoje e receba acesso imediato a tudo isso:";
+  const activeOfertaBannerLabel = ofertaBannerLabel ?? "DE GRAÇA POR 3 DIAS";
+  const activeOfertaCtaLabel = ofertaCtaLabel ?? "ATIVAR MEU TESTE GRÁTIS";
+  const activeGarantiaTitle = garantiaTitle ?? "Teste grátis por 3 dias";
+  const activeGarantiaBody = garantiaBody ?? null;
+  const activeFaqItems = pageFaqItems ?? faqItems;
   return (
     <>
       {/* ===== O QUE VOCÊ TESTA ===== */}
@@ -216,7 +254,7 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
             <p className="text-accent-foreground inline-block px-3 py-1 rounded-full bg-accent text-xs tracking-[0.18em] uppercase font-bold mb-3">
               O QUE VOCÊ RECEBE
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-black">Tudo isso liberado para testar por 3 dias grátis</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-black">{activeFeaturesSectionSubtitle}</h2>
           </motion.div>
 
           <div className="grid gap-6">
@@ -266,7 +304,7 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
               <span className={`flex-1 h-px ${darkFeatureCard ? "bg-white/15" : "bg-border"}`} />
               <span
                 className={`inline-block px-3 py-1 rounded-full text-[10px] tracking-[0.18em] uppercase font-extrabold whitespace-nowrap ${t.bonusBadgeClass}`}
-                style={theme === "whatsapp" ? { background: t.cardAccent } : undefined}
+                style={theme === "whatsapp" || theme === "vp" ? { background: t.cardAccent } : undefined}
               >
                 Bônus Exclusivos
               </span>
@@ -318,14 +356,14 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
               checkoutLink={checkoutLink}
               className={activeCta} style={activeCtaStyle}
             >
-              ATIVAR MEUS 3 DIAS GRÁTIS
+              {activeCtaLabel}
             </CtaButton>
           </motion.div>
         </div>
       </section>
 
       {/* ===== DEPOIMENTOS ===== */}
-      <section className="py-16 px-4 relative overflow-hidden" style={{ background: t.depoimentosBg }}>
+      <section className="py-16 px-4 relative overflow-hidden" style={{ background: depoimentosBgOverride ?? t.depoimentosBg }}>
         <div className="max-w-2xl mx-auto relative z-10">
 
           <motion.div
@@ -341,7 +379,7 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
               Resultados reais
             </span>
             <h2 className={`text-2xl md:text-3xl font-extrabold leading-tight mb-2 ${t.depoimentosTitleClass}`}>
-              Quem testou não parou de usar
+              {activeDepoimentosTitle}
             </h2>
             <p className={`text-sm ${t.depoimentosSubClass}`}>
               Resultado de afiliadas que usam todos os dias
@@ -365,9 +403,9 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
             },
             {
               num: "03",
-              title: "Sem saber nada de tecnologia, criando grupos e gerando comissão",
+              title: depoimentosGroup3Title ?? "Sem saber nada de tecnologia, criando grupos e gerando comissão",
               desc: "Mulheres comuns, sem experiência, que começaram do zero e já estão viralizando vídeos e ganhando comissão na Shopee.",
-              items: [testimonials[3], testimonials[4], testimonials[5]],
+              items: depoimentosGroup3Items ?? [testimonials[3], testimonials[4], testimonials[5]],
               delay: 4200,
             },
           ].map((group, gi) => (
@@ -417,7 +455,7 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
               checkoutLink={checkoutLink}
               className="flex items-center justify-center w-full text-center text-base bg-white text-black font-bold rounded-full py-4 px-6 hover:bg-white/90 transition-colors shadow-lg"
             >
-              QUERO TESTAR GRÁTIS AGORA
+              {activeDepoimentosCtaLabel}
             </CtaButton>
           </motion.div>
 
@@ -425,7 +463,7 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
       </section>
 
       {/* ===== POR QUE LIBERAMOS ===== */}
-      <section className="bg-background py-16 px-4">
+      {showPorQueLiberamos && <section className="bg-background py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -549,11 +587,11 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
               checkoutLink={checkoutLink}
               className={activeCta} style={activeCtaStyle}
             >
-              ATIVAR MEUS 3 DIAS GRÁTIS
+              {activeCtaLabel}
             </CtaButton>
           </motion.div>
         </div>
-      </section>
+      </section>}
 
       {/* ===== OFERTA ===== */}
       <section id="oferta" className="py-16 px-4 bg-secondary">
@@ -568,7 +606,7 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
               {activeOfertaHeading}
             </h2>
             <p className="text-muted-foreground text-sm mt-3">
-              Aproveite a liberação gratuita de hoje e receba acesso imediato a tudo isso:
+              {activeOfertaSubtitle}
             </p>
           </motion.div>
 
@@ -581,7 +619,7 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
           >
             <div className="mb-5 -mx-6 -mt-6 overflow-hidden">
               <div className="bg-accent py-2.5 px-4 text-center">
-                <span className="text-black text-sm font-extrabold tracking-wide">DE GRAÇA POR 3 DIAS</span>
+                <span className="text-black text-sm font-extrabold tracking-wide">{activeOfertaBannerLabel}</span>
               </div>
               <img src={activeOfertaImage} alt="Kit Afiliada IA" className="w-full h-auto" />
             </div>
@@ -600,22 +638,30 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
             </ul>
 
             <div className="text-center mb-6 py-4 border-y border-border">
-              <p className="text-muted-foreground line-through text-sm">De R$97,45</p>
-              <p className="text-5xl font-extrabold mt-1 text-[#008526]">R$0,00</p>
-              <p className="text-muted-foreground text-xs mt-2">Depois R$34,90/mês</p>
+              <p className="text-red-500 line-through text-sm">De R$97,45</p>
+              {showTrialPricing ? (
+                <>
+                  <p className="text-5xl font-extrabold mt-1 text-[#008526]">R$0,00</p>
+                  <p className="text-muted-foreground text-xs mt-2">Depois R$34,90/mês</p>
+                </>
+              ) : (
+                <p className="text-5xl font-extrabold mt-1 text-[#008526]">R${paidPrice ?? "17,90"}</p>
+              )}
             </div>
 
             <CtaButton
               checkoutLink={checkoutLink}
-              variant={vslMode ? "direct" : "modal"}
+              variant="direct"
               className="flex items-center justify-center w-full text-center text-base bg-[#008526] hover:bg-[#006e1f] text-white font-bold rounded-full py-4 px-6 transition-colors"
             >
-              ATIVAR MEU TESTE GRÁTIS
+              {activeOfertaCtaLabel}
             </CtaButton>
 
-            <p className="text-xs text-muted-foreground text-center mt-4">
-              Você cadastra o cartão apenas para ativar seu teste. Nenhum valor é cobrado hoje.
-            </p>
+            {showTrialNote && (
+              <p className="text-xs text-muted-foreground text-center mt-4">
+                Você cadastra o cartão apenas para ativar seu teste. Nenhum valor é cobrado hoje.
+              </p>
+            )}
           </motion.div>
         </div>
       </section>
@@ -632,18 +678,22 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
             viewport={{ once: true }}
             className="flex flex-col items-center"
           >
-            <img src={garantiaSelo} alt="Selo de teste grátis de 3 dias" className="w-48 h-auto mb-6 drop-shadow-2xl" />
+            <img src={garantiaSelo} alt="Selo de garantia" className="w-48 h-auto mb-6 drop-shadow-2xl" />
             <h2
               className="text-2xl md:text-3xl font-extrabold text-white mb-4"
               style={{ textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
             >
-              Teste grátis por <span className="text-white">3 dias</span>
+              {activeGarantiaTitle}
             </h2>
-            <div className="text-white/85 text-sm leading-relaxed max-w-sm space-y-3 text-left">
-              <p>Você tem 3 dias para entrar, acessar a plataforma e ver se o Afiiada Prime faz sentido para você.</p>
-              <p>Se não quiser continuar, cancele antes do fim do teste e não pague nada.</p>
-              <p>Se continuar, a assinatura será de R$34,90/mês. E mesmo após a cobrança, você ainda tem <strong className="text-white">7 dias de garantia</strong> para pedir reembolso caso não goste.</p>
-            </div>
+            {activeGarantiaBody ? (
+              <p className="text-white/85 text-sm leading-relaxed max-w-sm text-left">{activeGarantiaBody}</p>
+            ) : (
+              <div className="text-white/85 text-sm leading-relaxed max-w-sm space-y-3 text-left">
+                <p>Você tem 3 dias para entrar, acessar a plataforma e ver se o Afiiada Prime faz sentido para você.</p>
+                <p>Se não quiser continuar, cancele antes do fim do teste e não pague nada.</p>
+                <p>Se continuar, a assinatura será de R$34,90/mês. E mesmo após a cobrança, você ainda tem <strong className="text-white">7 dias de garantia</strong> para pedir reembolso caso não goste.</p>
+              </div>
+            )}
           </motion.div>
         </div>
       </section>
@@ -664,7 +714,7 @@ const LandingBody = ({ checkoutLink, vslMode = false, pageFeatures, pageBonusCar
           </motion.div>
 
           <Accordion type="single" collapsible className="space-y-3">
-            {faqItems.map((item, i) => (
+            {activeFaqItems.map((item, i) => (
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
