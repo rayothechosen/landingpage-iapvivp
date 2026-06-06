@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 import { useEffect } from "react";
 import LandingBody from "@/components/LandingBody";
 
-const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQBKNI";
+const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQCR95";
 
 const VideoIaDeVideos = () => {
   useEffect(() => {

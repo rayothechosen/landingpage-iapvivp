@@ -6,7 +6,7 @@ const GIF_SRC = "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/GIF%20PVI.g
 import LandingBody from "@/components/LandingBody";
 import CtaButton from "@/components/CtaButton";
 
-const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQC6Q1";
+const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQCR94";
 
 const GifWithPlaceholder = () => {
   const [gifLoaded, setGifLoaded] = useState(false);

@@ -5,7 +5,7 @@ const bannerTopo = "https://pub-087c3f92e3134b8cb358b6210b3554f5.r2.dev/TOPO%20I
 import LandingBody from "@/components/LandingBody";
 import CtaButton from "@/components/CtaButton";
 
-const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQBKNI";
+const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQCR95";
 
 const useCountdown = (initialMinutes: number) => {
   const [totalSeconds, setTotalSeconds] = useState(initialMinutes * 60);

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import LandingBody from "@/components/LandingBody";
 import CtaButton from "@/components/CtaButton";
 
-const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQCJC5";
+const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQCR94";
 
 const VideoPvi = () => {
   useEffect(() => {
