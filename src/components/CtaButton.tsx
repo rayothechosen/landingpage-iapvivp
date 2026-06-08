@@ -39,7 +39,7 @@ const CtaButton = ({ checkoutLink, className, style, children, variant = "scroll
         style={style}
         onClick={() => {
           const el = document.getElementById("oferta");
-          if (el) el.scrollIntoView({ behavior: "smooth" });
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
         }}
       >
         {children}

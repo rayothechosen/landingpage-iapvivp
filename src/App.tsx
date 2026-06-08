@@ -13,6 +13,7 @@ const LpPvi = lazy(() => import("./pages/LpPvi"));
 const VideoPvi = lazy(() => import("./pages/VideoPvi"));
 const LpVp = lazy(() => import("./pages/LpVp"));
 const VideoVp = lazy(() => import("./pages/VideoVp"));
+const Obrigado = lazy(() => import("./pages/Obrigado"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/video-pvi" element={<VideoPvi />} />
             <Route path="/lp-vp" element={<LpVp />} />
             <Route path="/video-vp" element={<VideoVp />} />
+            <Route path="/obrigado" element={<Obrigado />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

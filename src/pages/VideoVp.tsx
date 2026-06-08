@@ -48,7 +48,7 @@ const VideoVp = () => {
   useEffect(() => {
     const s = document.createElement("script");
     s.src =
-      "https://scripts.converteai.net/f3993fb3-b7fc-4628-bf7a-d82c39d224ab/players/6a1b48b9703894749f3cfeda/v4/player.js";
+      "https://scripts.converteai.net/b4eae634-a642-471f-b580-88ad9ba9c8b1/players/6a273720b58306a294acba28/v4/player.js";
     s.async = true;
     document.head.appendChild(s);
     return () => {
@@ -105,7 +105,7 @@ const VideoVp = () => {
           >
             <div
               dangerouslySetInnerHTML={{
-                __html: `<vturb-smartplayer id="vid-6a1b48b9703894749f3cfeda" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>`,
+                __html: `<vturb-smartplayer id="vid-6a273720b58306a294acba28" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>`,
               }}
             />
           </motion.div>

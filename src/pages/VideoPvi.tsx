@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import LandingBody from "@/components/LandingBody";
 import CtaButton from "@/components/CtaButton";
 
-const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQCR94";
+const CHECKOUT_LINK = "https://checkout.perfectpay.com.br/pay/PPU38CQC47H";
 
 const VideoPvi = () => {
   useEffect(() => {
     const s = document.createElement("script");
     s.src =
-      "https://scripts.converteai.net/f3993fb3-b7fc-4628-bf7a-d82c39d224ab/players/6a1b48b9703894749f3cfeda/v4/player.js";
+      "https://scripts.converteai.net/b4eae634-a642-471f-b580-88ad9ba9c8b1/players/6a2736fc9c44aeca98b8e9fd/v4/player.js";
     s.async = true;
     document.head.appendChild(s);
     return () => {
@@ -66,7 +66,7 @@ const VideoPvi = () => {
           >
             <div
               dangerouslySetInnerHTML={{
-                __html: `<vturb-smartplayer id="vid-6a1b48b9703894749f3cfeda" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>`,
+                __html: `<vturb-smartplayer id="vid-6a2736fc9c44aeca98b8e9fd" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>`,
               }}
             />
           </motion.div>
